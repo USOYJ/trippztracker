@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Homepage */
+body {
+  background-image: url('./tripzztrack.png');
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(25, 24, 24) !important;
+  background: linear-gradient(to top, #c4268f, #000000);
+  color: #faf7f9;
+}
+
+.home-title {
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #fdfafc;
+}
+
+.nav {
+  border: solid !important;
+  border-radius: 10px;
+}
+
+.nav-text {
+  color: #cfddd3 !important;
+  font-weight: bold;
+}
+
+.navbar-center {
+  position: absolute;
+  left: 43.5%;
+  object-fit: cover;
+}
+
+.AlignCenter {
+  align-items: center;
+}
+
+/* forms */
+.login {
+  padding-left: 16%;
+}
+
+.title {
+  text-align: center;
+  padding-right: 20%;
+  font-weight: bold;
+}
+
+.input-field {
+  background-color: rgba(239, 15, 183, 0) !important;
+}
+
+.button {
+  background-color: rgba(38, 3, 31, 0.4) !important;
+  border-color: rgb(219, 48, 159) !important;
+}
+
+.button:hover {
+  background-color: #bd3790 !important;
+}
+
+.button:active {
+  background-color: #cfddd3 !important;
+}
+
+input {
+  color: #06010b !important;
+}
+
+.card {
+  background: linear-gradient(to bottom, #c337ba, #000000);
+  box-shadow: 0 30px 16px -10px rgb(16, 17, 16);
+  border-radius: 10px !important;
+  border: 0px !important;
+}
+
+.card-text {
+  color: #cfddd3 !important;
+}
+
+.link {
+  color: #fdf7fd !important;
+  border-color: rgb(127, 14, 114) !important;
+}
+
+.link:hover {
+  color: #8c056f !important;
+}
+
+.link:active {
+  color: #faf7f9 !important;
+}
