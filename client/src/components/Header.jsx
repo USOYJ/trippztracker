@@ -6,9 +6,6 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
-
-  const user = Auth.getUser();
-
   return (
     <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
@@ -21,20 +18,14 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-              <span>Hey there, {user.username}!</span>
+              <span>Hey there, {Auth.getUser().username}!</span>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
               </button>
             </>
           ) : (
             <>
-              {/* Render your login/signup links */}
-              <Link className="btn btn-lg btn-info m-2" to="/login">
-                Login
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
-                Signup
-              </Link>
+           
             </>
           )}
         </div>
