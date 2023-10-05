@@ -19,34 +19,19 @@ const userSchema = new Schema({
     required: true,
     minlength: 8,
   },
-  destinations: [
-    {
-    presentLocation: {
-      type: String,
-      required: 'Pick a trip Location!',
-      minlength: 1,
-      maxlength: 280,
-      trim: true,
-    },
-    destination: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-  },
-  ],
 });
 
-userSchema.pre('save', function (next) {
-  if (this.isModified('password')) {
+
+userSchema.pre('save', async function (next) {
+  if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
-    this.password = bcrypt.hashSync(this.password, saltRounds);
+    this.password = await bcrypt.hash(this.password, saltRounds);
   }
   next();
 });
 
-userSchema.methods.isCorrectPassword = function (password) {
-  return bcrypt.compareSync(password, this.password);
+userSchema.methods.isCorrectPassword = async function (password) {
+  return bcrypt.compare(password, this.password);
 };
 
 const User = model('User', userSchema);

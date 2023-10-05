@@ -1,12 +1,15 @@
+import React from "react";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import "../App.css";
 import Auth from "../utils/auth";
+import tripztracker from "../assets/images/tripzztrack.png"; // Updated image source
 
 function NavBar() {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
+
   if (Auth.loggedIn()) {
     return (
       <Navbar
@@ -22,7 +25,7 @@ function NavBar() {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <img className="mx-auto navbar-center" src={Trips} width="14%" />
+            <img className="mx-auto navbar-center" src={tripztracker} width="14%" />
             <Nav className="navbar-nav ms-auto">
               <Nav.Link className="nav-text" onClick={logout}>
                 Logout
@@ -47,13 +50,13 @@ function NavBar() {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <img className="mx-auto navbar-center" src={Trips} width="14%" />
+            <img className="mx-auto navbar-center" src={tripztracker} width="14%" />
             <Nav className="navbar-nav ms-auto">
               <Nav.Link className="nav-text" href="/login">
                 Login
               </Nav.Link>
               <Nav.Link className="nav-text" href="/signup">
-                Sign Up
+                Signup
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -62,4 +65,5 @@ function NavBar() {
     );
   }
 }
+
 export default NavBar;
