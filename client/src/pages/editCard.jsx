@@ -1,29 +1,28 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { UPDATE_DESTINATION } from "../utils/mutations"; 
+import { UPDATE_DESTINATION } from "../utils/mutations";
 
 function FormSubmit() {
-  const [presentLocation, setPresentLocation] = useState(""); 
-  const [destination, setDestination] = useState(""); 
-  const { destinationId } = useParams(); 
-  const [edit, { error }] = useMutation(UPDATE_DESTINATION); 
+  const [location, setLocation] = useState(""); 
+  const [departure, setDeparture] = useState(""); 
+  const { destinationId } = useParams();
+  const [edit, { error }] = useMutation(UPDATE_DESTINATION);
 
   const handleEdit = async (event) => {
     event.preventDefault();
     try {
       const { data } = await edit({
         variables: {
-          destinationId: destinationId, 
-          presentLocation: presentLocation, 
-          destination: destination, 
+          destinationId: destinationId,
+          location: location, 
+          departure: departure, 
         },
       });
       console.log(data);
       alert("Edit Successful");
-   
     } catch (e) {
       console.error(e);
     }
@@ -40,21 +39,21 @@ function FormSubmit() {
           className="input-field"
           type="text"
           placeholder="Update Present Location"
-          value={presentLocation}
-          onChange={(e) => setPresentLocation(e.target.value)} 
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
           size="lg"
         />
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label>
-          <h2>Destination:</h2>
+          <h2>Departure</h2>
         </Form.Label>
         <Form.Control
           className="input-field"
           type="text"
           placeholder="Update Destination"
-          value={destination}
-          onChange={(e) => setDestination(e.target.value)} 
+          value={departure}
+          onChange={(e) => setDeparture(e.target.value)}
           size="lg"
         />
       </Form.Group>

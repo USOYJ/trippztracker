@@ -1,27 +1,25 @@
 import { gql } from '@apollo/client';
 
-export const GetDestination = gql`
-  query Query($destinationId: ID!) {
-    destination(destinationId: $destinationId) {
-      _id
-      presentLocation
-      destination
-    }
+export const Get_Destination = gql`
+query Query($destinationId: ID!) {
+  destination(destinationId: $destinationId) {
+    _id
+    location
+    departure
   }
-`;
+}`
 
-export const ME = gql` 
-  query Query {
-    me {
+export const ME = gql ` 
+query Query {
+  me {
+    _id
+    username
+    email
+    password
+    destinations {
       _id
-      username
-      email
-      password
-      destinations {
-        _id
-        presentLocation
-        destination
-      }
+      location
+      departure
     }
   }
-`;
+}`

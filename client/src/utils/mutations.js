@@ -1,35 +1,5 @@
 import { gql } from '@apollo/client';
-import axios from 'axios'; 
 
-
-export const GET_WEATHER = gql`
-  query GetWeather($presentLocation: String!) {
-    getWeather(location: $presentLocation) {
-      temperature
-      conditions
-    }
-  }
-`;
-
-
-// Function to fetch weather data using the query
-export async function fetchWeather(presentLocation) {
-  try {
-    const response = await axios.post('https://your-graphql-api-url.com/graphql', {
-      query: GET_WEATHER,
-      variables: {
-        presentLocation: presentLocation,
-      },
-    });
-
-    // Handle the response here, e.g., return data or log it
-    return response.data.data.getWeather;
-  } catch (error) {
-    // Handle errors here
-    console.error('GraphQL Error:', error);
-    throw error;
-  }
-}
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -55,21 +25,21 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_DESTINATION = gql`
-  mutation addDestination($destinationText: String!) {
-    addDestination(destinationText: $destinationText) {
-      _id
-      presentLocation
-      destination
-    }
+mutation Mutation($location: String!, $departure: String!) {
+  addDestination(location: $location, departure: $departure) {
+    _id
+    location
+    departure
   }
+}
 `;
 
 export const UPDATE_DESTINATION = gql`
-  mutation updateDestination($destinationId: ID!, $destinationText: String!) {
-    updateDestination(destinationId: $destinationId, destinationText: $destinationText) {
+  mutation updateDestination($destinationId: ID!, $location: String!, $departure: String!) {
+    updateDestination(thoughtId: $destinationId, location: $location, departure: $departure) {
       _id
-      presentLocation
-      destination
+      location
+      departure
     }
   }
 `;
@@ -78,9 +48,11 @@ export const REMOVE_DESTINATION = gql`
   mutation removeDestination($destinationId: ID!) {
     removeDestination(destinationId: $destinationId) {
       _id
-      presentLocation
-      destination
+      location
+      departure
     }
   }
 `;
+
+
 

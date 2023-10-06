@@ -1,42 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Form } from "react-bootstrap";
-import "../index.css";
+import "../index.css"; // Import the CSS file for styling
+import { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { ADD_DESTINATION } from "../utils/mutations";
-
-
-import { GET_WEATHER, fetchWeather } from "../utils/mutations"; 
+import { ADD_DESTINATION} from "../utils/mutations";
 
 function DestinationForm() {
-  const [presentLocation, setPresentLocation] = useState("");
-  const [destination, setDestination] = useState("");
-  const [weatherData, setWeatherData] = useState(null); // State to store weather data
+  const [location, setLocation] = useState("");
+  const [departure, setDeparture] = useState("");
 
-  const [addDestination] = useMutation(ADD_DESTINATION, {
-    onCompleted: (data) => {
-      console.log(data);
-      window.location.reload(false);
-    },
-    onError: (error) => {
-      alert("Invalid Entry");
-      console.error(error);
-    },
-  });
-
+  const [addDestination, { error, data }] = useMutation(ADD_DESTINATION);
   const handleSignupSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(` ${location},  ${departure}`);
     try {
-      const weather = await fetchWeather(presentLocation);
-      setWeatherData(weather); 
-    } catch (error) {
-      console.error(error);
+      const { data } = await addDestination({
+        variables: { location: location, departure: departure },
+      });
+      window.location.reload(false);
+    } catch (e) {
+      alert("Invalid Entry");
+      console.error(e);
     }
-
-  
-    addDestination({
-      variables: { destinationText: presentLocation },
-    });
   };
 
   return (
@@ -44,53 +29,46 @@ function DestinationForm() {
       <h1 className="home-title mb-4">Trip Details</h1>
       <Form.Group className="mb-2">
         <Form.Label>
-          <h2>Present Location</h2>
-        </Form.Label>
-        <Form.Control
-          className="input-field"
-          type="text"
-          placeholder="Enter Present Location"
-          value={presentLocation}
-          onChange={(e) => setPresentLocation(e.target.value)}
-          size="lg"
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>
           <h2>Destination</h2>
         </Form.Label>
         <Form.Control
           className="input-field"
           type="text"
           placeholder="Enter Destination"
-          value={destination}
-          onChange={(e) => setDestination(e.target.value)}
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
           size="lg"
         />
-        <Button
-          className="button mt-3"
-          variant="primary"
-          type="submit"
-          size="lg"
-          style={{ width: "100%" }}
-        >
-          Add Destination
-        </Button>
       </Form.Group>
-
-      {/* Display weather data */}
-      {weatherData && (
-        <div className="mt-4">
-          <h2>Weather Data for {presentLocation}</h2>
-          <p>Temperature: {weatherData.temperature}</p>
-          <p>Conditions: {weatherData.conditions}</p>
-        </div>
-      )}
+      <Form.Group className="mb-3">
+        <Form.Label>
+          <h2>Date</h2>
+        </Form.Label>
+        <Form.Control
+          className="input-field"
+          type="date"
+          placeholder="Enter Days to "
+          value={departure}
+          onChange={(e) => setDeparture(e.target.value)}
+          size="lg"
+        />
+      </Form.Group>
+      <Button
+        className="button"
+        variant="primary"
+        type="submit"
+        size="lg"
+        style={{ width: "100%" }}
+      >
+        Add Trip
+      </Button>
     </Form>
   );
 }
 
 export default DestinationForm;
+
+
 
 
 
