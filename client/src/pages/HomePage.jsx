@@ -22,7 +22,7 @@ function HomePage() {
         <div className="text-center">
           {" "}
          
-          <h1 className="home-title mt-4 mb-3">Welcome to MyTrips App!</h1>
+          <h1 className="home-title mt-4 mb-3">Welcome to Tripztracker App!</h1>
           <Button
             className="button m-2"
             href="/login"

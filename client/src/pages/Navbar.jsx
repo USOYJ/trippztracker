@@ -2,7 +2,7 @@ import React from "react";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import "../App.css";
 import Auth from "../utils/auth";
-import tripztracker from "../assets/images/tripzztrack.png"; // Updated image source
+import tripztracker from "../assets/images/tripzztrack.png"; 
 
 function NavBar() {
   const logout = (event) => {
@@ -18,7 +18,7 @@ function NavBar() {
         style={{ width: "100%", fontSize: "20px" }}
       >
         {" "}
-        {/* Make the navbar inline */}
+      
         <Container>
           <Navbar.Brand className="nav-text" href="/">
             Home
@@ -43,7 +43,7 @@ function NavBar() {
         style={{ width: "100%", fontSize: "20px" }}
       >
         {" "}
-        {/* Make the navbar inline */}
+   
         <Container>
           <Navbar.Brand className="nav-text" href="/">
             Home

@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/Homepage';
 import Login from './pages/Login';
 import SignUp from './pages/Signup'; 
-import Nav from './pages/Nav';
+import Nav from './pages/Navbar';
 import Edit from './pages/EditCard';
 
 

@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 
 function BasicExample() {
-  const [username, setUsername] = useState(""); // Updated variable name
-  const [email, setEmail] = useState(""); // Updated variable name
-  const [password, setPassword] = useState(""); // Updated variable name
+  const [username, setUsername] = useState(""); 
+  const [email, setEmail] = useState(""); 
+  const [password, setPassword] = useState(""); 
 
   const [addUser, { error, data }] = useMutation(ADD_USER);
   const handleSignupSubmit = async (event) => {
@@ -40,7 +40,7 @@ function BasicExample() {
           type="email"
           placeholder="Enter Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)} // Updated variable name
+          onChange={(e) => setEmail(e.target.value)} 
           size="lg"
           style={{ width: "80%" }}
         />
@@ -54,7 +54,7 @@ function BasicExample() {
           type="text"
           placeholder="Enter Username"
           value={username}
-          onChange={(e) => setUsername(e.target.value)} // Updated variable name
+          onChange={(e) => setUsername(e.target.value)} 
           size="lg"
           style={{ width: "80%" }}
         />
@@ -68,7 +68,7 @@ function BasicExample() {
           type="password"
           placeholder="Enter Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)} // Updated variable name
+          onChange={(e) => setPassword(e.target.value)} 
           size="lg"
           style={{ width: "80%" }}
         />
