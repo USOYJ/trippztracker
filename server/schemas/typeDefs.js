@@ -11,8 +11,8 @@ const typeDefs = gql`
 
   type Destination {
     _id: ID
-    presentLocation: String
-    destination: String
+    location: String
+    departure: String
   }
 
   type AuthPayload {

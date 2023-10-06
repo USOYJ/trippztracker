@@ -24,8 +24,8 @@ const resolvers = {
         },
     },
     Mutation: {
-        addDestination: async (parent, { presentLocation, destination }, context) => { 
-            const newDestination = await Destination.create({ presentLocation, destination }); 
+        addDestination: async (parent, { location, departure }, context) => { 
+            const newDestination = await Destination.create({ location, departure }); 
             await User.findOneAndUpdate({ _id: context.user._id }, { $addToSet: { destinations: newDestination._id } }); 
             return newDestination;
         },
@@ -65,11 +65,11 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        updateDestination: async (parent, { destinationId, presentLocation, destination }, context) => { 
+        updateDestination: async (parent, { destinationId, location, departure }, context) => { 
             if (context.user) {
                 const destination = await Destination.findOneAndUpdate(
                     { _id: destinationId },
-                    { $set: { presentLocation, destination } },
+                    { $set: { location, departure } },
                     { new: true }
                 );
                 await User.findOneAndUpdate({ _id: context.user._id }, { $addToSet: { destinations: destination._id } }); 
