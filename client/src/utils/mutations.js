@@ -25,7 +25,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_DESTINATION = gql`
-mutation Mutation($location: String!, $departure: String!) {
+mutation addDestination($location: String!, $departure: String!) {
   addDestination(location: $location, departure: $departure) {
     _id
     location

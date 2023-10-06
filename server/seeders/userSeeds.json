@@ -5,12 +5,12 @@
       "email": "mooncolin@pmail.com",
       "destinations": [
         {
-          "presentLocation": "Paris",
-          "destination": "Italy"
+          "location": "Paris",
+          "departure": "2019-01-01"
   },
         {
-          "presentLocation": "New York",
-          "destination": "Venice"
+          "location": "London",
+          "departure": "2023-01-01"
         }
       ]
     }

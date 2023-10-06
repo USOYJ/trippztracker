@@ -29,11 +29,11 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addDestination(presentLocation: String!, destination: String!): Destination
+    addDestination(location: String!, departure: String!): Destination
     addUser(username: String!, email: String!, password: String!): AuthPayload
     login(email: String!, password: String!): AuthPayload
     removeDestination(destinationId: ID!): Destination
-    updateDestination(destinationId: ID!, presentLocation: String, destination: String): Destination
+    updateDestination(destinationId: ID!, location: String, departure: String): Destination
   }
 `;
 
