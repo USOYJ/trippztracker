@@ -1,0 +1,22 @@
+[
+    {
+        "location": "New York City",
+        "departure": "October 10, 2023"
+    },
+    {
+        "location": "Lagos",
+        "departure": "December 15, 2023"
+    },
+    {
+        "location": "Bali",
+        "departure": "November 20, 2023"
+    },
+    {
+        "location": "Zanizibar",
+        "departure": "July 5, 2024"
+    },
+    {
+        "location": "Los Cabos",
+        "departure": "June 12, 2024"
+    }
+]
