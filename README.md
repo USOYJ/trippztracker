@@ -31,12 +31,13 @@ Tripztracker is an interactive MERN Single-Page application that helps to save a
 
 ![image](https://github.com/USOYJ/trippztracker/assets/125850331/f466587e-9640-41a6-8022-7e783716af6e)
 
-![image](https://github.com/USOYJ/trippztracker/assets/125850331/cce2b917-cba1-489f-af16-8ac5b76bd85a)
+![image](https://github.com/USOYJ/trippztracker/assets/125850331/3bc72a33-a202-4f97-bfdc-c2343d9b2e1b)
+
 
 
 
 ## Deployed link:
-* 
+* https://lit-scrubland-93766-6711e73fcbbc.herokuapp.com/
 
 # Built Using
 - Vite
