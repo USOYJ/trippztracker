@@ -60,4 +60,6 @@ Tripztracker is an interactive MERN Single-Page application that helps to save a
 - Add feature where users can log accommodations etc.....
 
 # Contributors
+- Antoine Ford
+- Colin Moon
 - Oyindamola Jongbo
